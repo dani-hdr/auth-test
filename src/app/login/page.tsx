@@ -30,8 +30,8 @@ type LoginFormData = z.infer<typeof schema>;
 
 const LoginPage = () => {
   const router = useRouter();
-  const { login, isAuthenticated } = useAuth();
-  console.log(isAuthenticated);
+  const { login } = useAuth();
+ 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -49,14 +49,15 @@ const LoginPage = () => {
     },
     onSuccess: (data: User) => {
       login(data);
-      router.push("/");
-      window.location.reload();
+      router.push("/",);   
     },
+  
   });
 
   const onSubmit = (data: LoginFormData) => {
     console.log("Login data:", data);
     mutation.mutate();
+    
   };
 
   return (

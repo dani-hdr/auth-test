@@ -6,7 +6,7 @@ const Welcome = () => {
   const { user } = useAuth();
 
   return (
-    <h1 className="flex items-center justify-center text-4xl font-semibold">
+    <h1 className="flex items-center justify-center text-center text-4xl font-semibold">
       خوش آمدی , {user?.results[0].name.first}!
     </h1>
   );
